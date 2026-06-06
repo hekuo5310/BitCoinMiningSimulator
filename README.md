@@ -1,40 +1,44 @@
 # 挖矿模拟器 (Bitcoin Mining Simulator)
 
-一款 Windows 平台的比特币挖矿模拟游戏，体验虚拟矿场的经营与升级。
+一款跨平台的比特币挖矿模拟游戏，支持 Windows / Linux / macOS。
 
 ## 游戏特性
 
 - 虚拟货币系统（人民币 & 比特币）
-- GPU 设备选购与升级（GTX1060 等）
-- 商店系统
+- GPU 抽卡系统（GTX1060 ~ H100）
+- 贷款 / 还债
 - 邮件通知
 - 存档 / 读档
-- 中英文界面
+- 自动检测系统语言（中文 / English）
 
-## 运行方式
+## 下载
 
-编译并运行 `launch.cpp`，或直接执行 `bcms_files/bcms.exe`。
+前往 [Releases](https://github.com/hekuo5310/BitCoinMiningSimulator/releases) 页面下载对应平台的可执行文件，无需安装，直接运行。
+
+## 从源码编译
+
+需要 GCC（C11）。
 
 ```bash
-g++ launch.cpp -o launch.exe
-./launch.exe
+gcc -std=c11 main.c -o mining-simulator
+./mining-simulator
 ```
 
 ## 项目结构
 
 ```
 BitCoinMiningSimulator/
-├── launch.cpp              # 启动入口（免责声明 + 启动主程序）
-├── archive.txt             # 存档文件
-└── bcms_files/
-    ├── bcms.cpp            # 主游戏逻辑
-    ├── save.h              # 存档系统
-    └── versions/1.7.0/     # 版本模块
+├── main.c      # 主游戏逻辑
+├── save.h      # 存档系统
+├── i18n.h      # 国际化（中/英）
+└── .github/
+    └── workflows/
+        └── release.yml   # 自动构建发布
 ```
 
 ## 版本
 
-v1.8.1
+v1.8.3
 
 ## 免责声明
 

@@ -1,19 +1,17 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-using namespace std;
+#ifndef SAVE_H
+#define SAVE_H
 
-void save_game(long long rmb, long long bit_coin, long long xkm, const string& xk)
-{
-    ofstream fout("archive.txt");
-    fout << rmb << "\n" << bit_coin << "\n" << xk << "\n" << xkm << "\n";
+#include <stdio.h>
+#include <string.h>
+
+static void save_game(long long rmb, long long bitcoin, long long xkm, const char* xk) {
+    FILE* f = fopen("archive.txt", "w");
+    if (f) { fprintf(f, "%lld\n%lld\n%s\n%lld\n", rmb, bitcoin, xk, xkm); fclose(f); }
 }
 
-void load_game(long long& rmb, long long& bit_coin, long long& xkm, string& xk)
-{
-    ifstream fin("archive.txt");
-    if (fin)
-    {
-        fin >> rmb >> bit_coin >> xk >> xkm;
-    }
+static void load_game(long long* rmb, long long* bitcoin, long long* xkm, char* xk) {
+    FILE* f = fopen("archive.txt", "r");
+    if (f) { fscanf(f, "%lld %lld %s %lld", rmb, bitcoin, xk, xkm); fclose(f); }
 }
+
+#endif

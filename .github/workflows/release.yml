@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build
-        run: g++ -std=c++11 main.cpp -o ${{ matrix.output }}
+        run: gcc -std=c11 main.c -o ${{ matrix.output }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

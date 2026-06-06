@@ -34,7 +34,7 @@ BitCoinMiningSimulator/
 
 ## 版本
 
-v1.8.0
+v1.8.1
 
 ## 免责声明
 

@@ -12,24 +12,18 @@ jobs:
         include:
           - os: windows-latest
             output: mining-simulator-windows.exe
-            flags: -o mining-simulator-windows.exe
           - os: ubuntu-latest
             output: mining-simulator-linux
-            flags: -o mining-simulator-linux
           - os: macos-latest
             output: mining-simulator-macos
-            flags: -o mining-simulator-macos
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build bcms
-        run: g++ -std=c++11 bcms_files/bcms.cpp -o bcms_files/bcms${{ matrix.os == 'windows-latest' && '.exe' || '' }}
-
-      - name: Build launcher
-        run: g++ -std=c++11 launch.cpp ${{ matrix.flags }}
+      - name: Build
+        run: g++ -std=c++11 bcms_files/bcms.cpp -o ${{ matrix.output }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

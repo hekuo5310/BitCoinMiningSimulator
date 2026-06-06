@@ -39,6 +39,10 @@ int main()
 	long long um_temp = 0;
 	int mail[100] = {1,1,1};
 	string xk = "GTX1060";
+	cout << "=Disclaimer=" << endl;
+	cout << "Mining Simulator is developed by XINGJI Interactive Software. All rights reserved." << endl;
+	cout << "Official site: https://www.xingjisoft.top/" << endl;
+	sleep_ms(3000);
 	cout << "|        Loading               |";
 	sleep_ms(5000);
 	cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
